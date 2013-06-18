@@ -1,0 +1,24 @@
+﻿<Window x:Class="MyWPFApp.DataBindingToObjectDemo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MyWPFApp"
+        FontSize="22"
+        Title="DataBindingToObjectDemo" Height="300" Width="300">
+    <Window.Resources>
+        <local:NameFormatter x:Key="nameFormatter"></local:NameFormatter>
+    </Window.Resources>
+    <Grid Name="GridRoot" DataContext="{StaticResource nameFormatter}">
+        <TextBox x:Name="TxtFirstName" HorizontalAlignment="Left" Height="41" Margin="95,46,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding  Path=FirstName, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        
+        <TextBox x:Name="TxtLastName" HorizontalAlignment="Left" Height="42" Margin="95,105,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding  Path=LastName, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        
+        <Button x:Name="BtnFormat" Content="Change FirstName" HorizontalAlignment="Left" Margin="42,164,0,0" VerticalAlignment="Top" Width="242" Click="BtnFormat_Click"/>
+        <TextBlock x:Name="TbFormattedName" HorizontalAlignment="Left" Margin="42,216,0,0" TextWrapping="Wrap" 
+                   Text="{Binding  Path=FullName}" VerticalAlignment="Top" RenderTransformOrigin="-0.008,0.139" Width="200"/>
+
+    </Grid>
+</Window>
