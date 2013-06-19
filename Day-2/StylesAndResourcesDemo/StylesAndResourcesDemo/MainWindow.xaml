@@ -1,0 +1,19 @@
+﻿<Window x:Class="StylesAndResourcesDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        FontSize="22"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.Resources>
+            
+        </Grid.Resources>
+        <TextBox HorizontalAlignment="Left"  Height="44" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="101,37,0,0">
+            
+        </TextBox>
+        <TextBox HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="101,97,0,0"/>
+        <TextBox HorizontalAlignment="Left" BorderBrush="Red" Height="44" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="101,160,0,0"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="339,96,0,0" Click="Button_Click_1"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="339,144,0,0"/>
+
+    </Grid>
+</Window>

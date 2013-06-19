@@ -1,0 +1,51 @@
+﻿<Window x:Class="MyWPFApp.FontViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        FontSize="28"
+        Name="window1"
+        Title="FontViewer" Height="600" Width="550">
+    <DockPanel LastChildFill="True">
+        <Border Height="100" DockPanel.Dock="Top" Background="Black">
+            <TextBlock Foreground="Yellow" Text="Font Viewer" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="34"></TextBlock>
+        </Border>
+        <ListBox DockPanel.Dock="Left" Width="300"
+                 ItemsSource="{x:Static Fonts.SystemFontFamilies}"
+                 Name="lstFonts"
+                 ></ListBox>
+        <Grid DockPanel.Dock="Bottom" Height="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Font Size :"></Label>
+            <ComboBox Name="cboFontSize" Grid.Column="1">
+                <ComboBox.Items>
+                    <ComboBoxItem>18</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                    <ComboBoxItem>22</ComboBoxItem>
+                    <ComboBoxItem>24</ComboBoxItem>
+                    <ComboBoxItem>26</ComboBoxItem>
+                    <ComboBoxItem>28</ComboBoxItem>
+                    <ComboBoxItem>30</ComboBoxItem>
+                    <ComboBoxItem>32</ComboBoxItem>
+                    <ComboBoxItem>34</ComboBoxItem>
+                </ComboBox.Items>
+            </ComboBox>
+            <TextBox Name="TxtPreview" Grid.Row="1" Grid.ColumnSpan="2" Text="[Enter the preview text]"></TextBox>
+        </Grid>
+        <Border BorderThickness="2" BorderBrush="red" Margin="3">
+            <TextBlock Text="{Binding ElementName=TxtPreview, Path=Text}"
+                       VerticalAlignment="Center" 
+                       FontFamily="{Binding ElementName=lstFonts, Path=SelectedItem}"
+                       FontSize="{Binding ElementName=cboFontSize, Path=SelectedItem.Content}"
+                       >
+                
+            </TextBlock>
+        </Border>
+        
+    </DockPanel>
+</Window>
